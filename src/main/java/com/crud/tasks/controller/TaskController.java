@@ -14,20 +14,20 @@ public class TaskController {
         return new ArrayList<>();
     }
 
-  //  @RequestMapping(method = RequestMethod.GET, value = "getTasksDto")
+    @RequestMapping(method = RequestMethod.GET, value = "getTasksDto")
     public TaskDto getTask(Long taskId) {
         return new TaskDto(1L, "test title", "test_content");
     }
 
-  //  @DeleteMapping(value = "deleteTask")
+    @DeleteMapping(value = "deleteTask")
     public void deleteTask(Long taskId) {
 
     }
-  //  @PutMapping(value = "updateTask")
+    @PutMapping(value = "updateTask")
     public TaskDto updateTask(TaskDto taskDto) {
         return new TaskDto(1L, "Edited test title", "Test content");
     }
-   // @PostMapping(value = "createTask")
+    @PostMapping(value = "createTask")
     public void createTask(TaskDto taskDto) {
 
     }
