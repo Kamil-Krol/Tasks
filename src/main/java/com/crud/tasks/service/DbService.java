@@ -5,6 +5,7 @@ import com.crud.tasks.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @Service
@@ -17,4 +18,8 @@ public class DbService {
         return repository.findAll();
     }
 
+    public Task getById(Long taskId)
+    {
+        return  repository.findById(taskId).get();
+    }
 }

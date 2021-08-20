@@ -46,8 +46,12 @@ public class TaskController {
     @PostMapping(value = "createTask")
     public void createTask(TaskDto taskDto) {
 
+    }
 
-
-
+    @GetMapping(value = "{id}")
+    public Task getById(Long id)
+    {
+        Task task = service.getById(id);
+        return task;
     }
 }
