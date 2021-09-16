@@ -1,0 +1,23 @@
+{
+  "carName":"Car",
+  "carBrand":"Brand",
+  "carSeats":[
+    "seat1":{
+      "textile":"textile",
+      "color":"color"
+    },
+    "seat2":{
+      "textile":"textile",
+      "color":"color"
+    },
+    "seat3":{
+      "textile":"textile",
+      "color":"color"
+    },
+    "seat4":{
+      "textile":"textile",
+      "color":"color"
+    }
+  ],
+  "engineCapacity":3
+}
