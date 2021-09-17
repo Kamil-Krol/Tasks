@@ -2,21 +2,21 @@
   "carName":"Car",
   "carBrand":"Brand",
   "carSeats":[
-    "seat1":{
-      "textile":"textile",
-      "color":"color"
+    {
+      "textile":"textile1",
+      "color":"color1"
     },
-    "seat2":{
-      "textile":"textile",
-      "color":"color"
+    {
+      "textile":"textile2",
+      "color":"color2"
     },
-    "seat3":{
-      "textile":"textile",
-      "color":"color"
+    {
+      "textile":"textile3",
+      "color":"color3"
     },
-    "seat4":{
-      "textile":"textile",
-      "color":"color"
+    {
+      "textile":"textile4",
+      "color":"color4"
     }
   ],
   "engineCapacity":3
