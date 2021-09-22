@@ -6,6 +6,8 @@ plugins {
 	//id 'war'
 }
 
+
+
 group = 'com.crud'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -38,4 +40,11 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+jar {
+	enabled = false
+	manifest {
+		attributes('Main-Class': 'com.crud.tasks.TasksApplication')
+	}
 }
