@@ -48,8 +48,8 @@ public class TaskController {
 
     }
 
-    @GetMapping(value = "{id}")
-    public Task getById(Long id)
+    @GetMapping("/{id}")
+    public Task getById(@PathVariable Long id)
     {
         Task task = service.getById(id);
         return task;
