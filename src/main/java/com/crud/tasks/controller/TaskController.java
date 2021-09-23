@@ -50,6 +50,13 @@ public class TaskController {
         return taskMapper.mapToTaskDto(savedTask);
     }
 
+    @GetMapping("/{id}")
+    public Task getById(@PathVariable Long id)
+    {
+        Task task = service.getById(id);
+        return task;
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "createTask", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createTask(@RequestBody TaskDto taskDto) {
         Task task = taskMapper.mapToTask(taskDto);
