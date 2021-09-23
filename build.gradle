@@ -42,6 +42,7 @@ test {
 	useJUnitPlatform()
 }
 
+
 jar {
 	enabled = false
 	manifest {
