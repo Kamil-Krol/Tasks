@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Trello {
 
     @JsonProperty("board")
-    private int board = 0;
+    private int board;
 
     @JsonProperty("card")
-    private int card = 0;
+    private int card;
 }
