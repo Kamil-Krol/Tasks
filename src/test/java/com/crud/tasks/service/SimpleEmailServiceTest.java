@@ -24,7 +24,7 @@ class SimpleEmailServiceTest {
 
     @Test
     public void shouldSendEmail() {
-        //Given"test@test.com", "Test", "Test Message",null
+        //Given
         Mail mail = new Mail.MailBuilder()
                 .mailTo("test@test.com")
                 .message("Test Message")

@@ -14,9 +14,4 @@ public class Mail {
     private final String subject;
     private final String message;
     private final Optional<String> toCc;
-
-    public static MailBuilder builder()
-    {
-        return new MailBuilder();
-    }
 }
