@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -84,10 +85,13 @@ class TrelloMapperTest {
         TrelloCardDto trelloCardDto = new TrelloCardDto("test","test","1","1");
 
         //When
-        TrelloCard trelloCard = trelloMapper.mapToCard(trelloCardDto);
+        Optional<TrelloCard> trelloCard = Optional.ofNullable(trelloMapper.mapToCard(trelloCardDto));
 
         //Then
-        assertEquals("test",trelloCard.getName());
+        assertEquals("test",trelloCard.get().getName());
+        assertEquals("test",trelloCard.get().getDescription());
+        assertEquals("1",trelloCard.get().getPos());
+        assertEquals("1",trelloCard.get().getListId());
     }
 
     @Test
@@ -97,10 +101,13 @@ class TrelloMapperTest {
         TrelloCard trelloCard = new TrelloCard("test","test","1","1");
 
         //When
-        TrelloCardDto trelloCardDto = trelloMapper.mapToCardDto(trelloCard);
+        Optional<TrelloCardDto> trelloCardDto = Optional.ofNullable(trelloMapper.mapToCardDto(trelloCard));
 
         //Then
-        assertEquals("test",trelloCardDto.getName());
+        assertEquals("test",trelloCardDto.get().getName());
+        assertEquals("test",trelloCardDto.get().getDescription());
+        assertEquals("1",trelloCardDto.get().getPos());
+        assertEquals("1",trelloCardDto.get().getListId());
     }
 
 }
