@@ -45,6 +45,9 @@ dependencies {
 	testImplementation 'com.google.code.gson:gson'
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.21.0'
+
 }
 
 test {

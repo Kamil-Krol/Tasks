@@ -44,7 +44,7 @@ class TrelloControllerTest {
                 .perform(MockMvcRequestBuilders
                         .get("/v1/trello/getTrelloBoards")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status()).is(200) // or isOk()
+                .andExpect(MockMvcResultMatchers.status().is(200)) // or isOk()
        .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(0)));
     }
 
@@ -88,9 +88,8 @@ class TrelloControllerTest {
         mockMvc
                 .perform(MockMvcRequestBuilders
                         .get("/v1/trello/createTrelloCard")
-                        .contentType(MediaType.APPLICATION_JSON))
-                        .characterEncoding("UTF-8")
-                        .content(jsonContent)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent).characterEncoding("UTF-8"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is("232")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("Test")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.shortUrl", Matchers.is("http://test.com")));
