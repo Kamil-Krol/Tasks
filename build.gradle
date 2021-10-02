@@ -48,6 +48,8 @@ dependencies {
 
 	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.21.0'
 
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.5.5'
+
 }
 
 test {
