@@ -32,6 +32,9 @@ class TrelloMapperTest {
 
         //Then
         assertEquals(1,trelloBoards.size());
+        assertEquals("1",trelloBoards.get(0).getId());
+        assertEquals("test",trelloBoards.get(0).getName());
+        assertEquals(new ArrayList<>(),trelloBoards.get(0).getLists());
     }
 
     @Test
@@ -47,6 +50,8 @@ class TrelloMapperTest {
 
         //Then
         assertEquals(1,trelloBoardDtos.size());
+        assertEquals("1",trelloBoardDtos.get(0).getId());
+        assertEquals("test",trelloBoardDtos.get(0).getName());
     }
 
     @Test
@@ -61,6 +66,8 @@ class TrelloMapperTest {
 
         //Then
         assertEquals(1,trelloLists.size());
+        assertEquals("1",trelloLists.get(0).getId());
+        assertEquals("test",trelloLists.get(0).getName());
     }
 
     @Test
@@ -76,6 +83,8 @@ class TrelloMapperTest {
 
         //Then
         assertEquals(1,trelloListDtos.size());
+        assertEquals("1",trelloListDtos.get(0).getId());
+        assertEquals("test",trelloListDtos.get(0).getName());
     }
 
     @Test
