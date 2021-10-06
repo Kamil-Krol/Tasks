@@ -1,8 +1,12 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.config.AdminConfig;
+import com.crud.tasks.domain.Mail;
+import com.crud.tasks.repository.TaskRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -12,7 +16,11 @@ import java.util.List;
 
 
 @Service
+@RequiredArgsConstructor
 public class MailCreatorService {
+
+    private final SimpleEmailService simpleEmailService;
+    private final TaskRepository taskRepository;
 
     @Autowired
     private AdminConfig adminConfig;
@@ -20,6 +28,22 @@ public class MailCreatorService {
     @Autowired
     @Qualifier("templateEngine")
     private TemplateEngine templateEngine;
+
+
+
+    @Scheduled(cron = "0 0 10 * * *")
+    public String sendInformationEmail() {
+        long size = taskRepository.count();
+        String message = "Currently in database you got: " + size + " tasks";
+        Context context = new Context();
+        context.setVariable("message", message);
+        context.setVariable("tasks_url", "https://kamil-krol.github.io/");
+        context.setVariable("button", "Visit website");
+        context.setVariable("admin_name", adminConfig.getAdminName());
+        context.setVariable("is_friend", false);
+        context.setVariable("admin_config", adminConfig);
+        return templateEngine.process("mail/created-trello-card-mail-zadanie", context);
+    }
 
     public String buildTrelloCardEmail(String message) {
 
@@ -38,4 +62,5 @@ public class MailCreatorService {
         context.setVariable("application_functionality", functionality);
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
+
 }
