@@ -36,8 +36,8 @@ public class TaskController {
         );
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/tasks/{taskId}")
-    public void deleteTask(@PathVariable Long taskId) {
+    @RequestMapping(method = RequestMethod.DELETE, value = "/tasks")
+    public void deleteTask(@RequestParam Long taskId) {
         service.deleteTask(taskId);
     }
     @RequestMapping(method = RequestMethod.PUT, value = "/tasks")
